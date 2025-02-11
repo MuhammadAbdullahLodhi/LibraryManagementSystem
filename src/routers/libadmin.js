@@ -56,12 +56,13 @@ router.post("/Admin", async (req,res) => {
 const slicedStr = name.substring(0, 1);
 const slicedcap = slicedStr.toUpperCase();
 
-        if(Adminemail.password === password1 ){
-            res.render("Admin",{text:`${slicedcap}`});
-        }
-        else{
-            res.send("user not found")
-        }
+const isMatch = await bcrypt.compare(password, useremail.password);
+if(isMatch){
+    res.render("Admin",{text:`${slicedcap}`});
+}
+else{
+    res.send("user not found")
+}
 
     } catch (error) {
 
