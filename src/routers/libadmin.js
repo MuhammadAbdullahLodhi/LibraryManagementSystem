@@ -2,7 +2,7 @@ const express = require("express");
 const router = new express.Router();
 const libraryRouter1 = require("../models/libraryadmin");
 const Library = require("../models/library");
-
+const bcrypt = require("bcryptjs");
 
 router.use(express.urlencoded ({ extended : true }) );
 
