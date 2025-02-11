@@ -56,7 +56,7 @@ router.post("/Admin", async (req,res) => {
 const slicedStr = name.substring(0, 1);
 const slicedcap = slicedStr.toUpperCase();
 
-const isMatch = await bcrypt.compare(password, useremail.password);
+const isMatch = await bcrypt.compare(password1, Adminemail.password);
 if(isMatch){
     res.render("Admin",{text:`${slicedcap}`});
 }
